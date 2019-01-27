@@ -9,35 +9,50 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
 import { MonoText } from '../components/StyledText';
+import { Button, Avatar, SocialIcon } from 'react-native-elements';
 
-import { Button, Avatar } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
+  constructor(){
+    super()
+    this.state = {
+      counter: 0,
+    } 
+   }
+
+  logoOnClick = () => {
+    this.setState({ counter : this.state.counter + 1 })
+    if(this.state.counter >= 5){
+      this.setState({
+        counter: 0
+      })
+      this.props.navigation.navigate('Admin');
+    }
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-          
-            <Image
-              source={
-                require('../assets/images/main-logo.png')
-              }
-              style={styles.welcomeImage}
-            />
+          <Avatar
+            large
+            source={require("../../assets/images/main-logo.png")}
+            onPress={this.logoOnClick}
+            activeOpacity={0.7}
+          />
           </View>
 
           <View style={styles.getStartedContainer}>
             {/* {this._maybeRenderDevelopmentModeWarning()} */}
 
-            <Text style={styles.title}>Welcome to BotelHotel</Text>
-
+            {/* <Text style={styles.title}>WELCOME TO BOTELHOTEL</Text> */}
+            <SocialIcon
+              title='Welcome'
+              button
+              type='medium'
+            />
           </View>
 
           <View style={styles.helpContainer}>
@@ -99,7 +114,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   title: {
     fontSize: 40,
-    fontFamily: 'Roboto',
+    fontFamily: 'AppleSDGothicNeo-UltraLight',
     color: 'rgba(96,100,109, 1)',
     // lineHeight: 24,
     textAlign: 'center', 
@@ -132,7 +147,7 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 0,
     // marginTop: 50
   },
   homeScreenFilename: {

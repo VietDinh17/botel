@@ -12,6 +12,8 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+import { Button, Avatar } from 'react-native-elements';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -22,44 +24,40 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
+          
             <Image
               source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
+                require('../assets/images/main-logo.png')
               }
               style={styles.welcomeImage}
             />
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+            {/* {this._maybeRenderDevelopmentModeWarning()} */}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+            <Text style={styles.title}>Welcome to BotelHotel</Text>
 
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
+            {/* <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <Button
+              large
+              rightIcon={{name: 'code'}}
+              title='Check In' />
           </View>
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
+        {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -99,6 +97,13 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 40,
+    fontFamily: 'Roboto',
+    color: 'rgba(96,100,109, 1)',
+    // lineHeight: 24,
+    textAlign: 'center', 
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -128,6 +133,7 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    // marginTop: 50
   },
   homeScreenFilename: {
     marginVertical: 7,

@@ -21,9 +21,19 @@ export default class HomeScreen extends React.Component {
     } 
    }
 
+   static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    }
+
   logoOnClick = () => {
     this.setState({ counter : this.state.counter + 1 })
-    if(this.state.counter >= 5){
+    if(this.state.counter >= 7){
       this.setState({
         counter: 0
       })
@@ -38,6 +48,7 @@ export default class HomeScreen extends React.Component {
           <View style={styles.welcomeContainer}>
           <Avatar
             large
+            rounded
             source={require("../../assets/images/main-logo.png")}
             onPress={this.logoOnClick}
             activeOpacity={0.7}
@@ -45,34 +56,21 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            {/* {this._maybeRenderDevelopmentModeWarning()} */}
-
-            {/* <Text style={styles.title}>WELCOME TO BOTELHOTEL</Text> */}
-            <SocialIcon
-              title='Welcome'
-              button
-              type='medium'
-            />
+            <Text style={styles.title}>WELCOME</Text>
           </View>
 
           <View style={styles.helpContainer}>
-            {/* <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity> */}
             <Button
+              backgroundColor='#f80'
               large
-              rightIcon={{name: 'code'}}
-              title='Check In' />
+              rightIcon={{name: 'arrow-right', type: 'font-awesome', buttonStyle: styles.iconButton}}
+              title='Check In' 
+              fontWeight="700"
+              color='#000'
+              borderRadius={1000}
+              />
           </View>
         </ScrollView>
-
-        {/* <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View> */}
       </View>
     );
   }
@@ -112,16 +110,21 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  iconButton:{
+    color: '#fff'
+  },
   title: {
-    fontSize: 40,
+    fontSize: 50,
     fontFamily: 'AppleSDGothicNeo-UltraLight',
-    color: 'rgba(96,100,109, 1)',
+    color: '#f80',
     // lineHeight: 24,
-    textAlign: 'center', 
+    textAlign: 'center',
+    fontWeight: "900",
+    letterSpacing: 3,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0cc',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -135,7 +138,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 2,
     marginBottom: 20,
   },
   welcomeImage: {
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 0,
-    // marginTop: 50
+    marginTop: 60
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -196,7 +199,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   helpContainer: {
-    marginTop: 15,
+    marginTop: 50,
     alignItems: 'center',
   },
   helpLink: {

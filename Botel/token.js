@@ -14,9 +14,10 @@ return (fetch(apiUrl,{
 method: "POST",
 body: JSON.stringify({
 	ttl: 500,
-	data: "Hello",
-  businessId           : '70680bd7-a832-4e7d-8252-34ac2160d5a2',
-  storeId              : 'fbc49058-51a3-4f48-8a43-81ab24b7dae3',
+	data: "Hello I have reached to Airport",
+  businessId           : 'cf073c6b-243c-4e1a-a156-92aeea8fe113',
+  storeId              : '04600c3f-c066-4e48-be29-b481feaa4e12',
+  deviceId             : 'urn:tid:48bc8edd-445c-3c6f-b27f-59c97d18b8ef',
   // deviceId             : 'urn:tid:48c54303-6d51-39af-bdeb-4af53f621652',
   // recipientClassName   : 'FooClass',
   recipientPackageName : 'co.poynt.testapp',

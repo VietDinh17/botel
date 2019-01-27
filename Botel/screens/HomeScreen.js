@@ -9,6 +9,9 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import QRCode from '../components/QR-Generator'
+import QRCScanner from '../components/QR-Camera'
+import Camera from 'react-native-camera'
 
 import { MonoText } from '../components/StyledText';
 
@@ -20,6 +23,11 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <QRCode />
+      <br />
+      <br />
+      <br />
+      <QRCScanner />
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image

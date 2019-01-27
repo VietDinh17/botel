@@ -10,6 +10,8 @@ import Promo from '../screens/Promo';
 import Reports from '../screens/Reports';
 import Reservation from '../screens/Reservation';
 import Production from '../screens/Production';
+import QRCodeScreen from '../screens/QRCodeScreen';
+import  TakenPicture from '../screens/TakenPicture'
 
 // const ProductionStack = createStackNavigator({
 //     Production: Production,
@@ -92,7 +94,9 @@ const RootStack = createStackNavigator({
   Reservation: Reservation,
   Production: Production,
   Reports: Reports,
-  Camera: CameraScreen
+  Camera: CameraScreen,
+  QR: QRCodeScreen,
+  Picture: TakenPicture
 },{
   initialRouteName: 'Home'
 });

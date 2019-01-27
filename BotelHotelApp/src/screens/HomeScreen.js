@@ -64,7 +64,7 @@ export default class HomeScreen extends React.Component {
               backgroundColor='#f80'
               large
               rightIcon={{name: 'arrow-right', type: 'font-awesome', buttonStyle: styles.iconButton}}
-              title='Check In' 
+              title='Take a Picture of Your ID Card to Check in' 
               fontWeight="700"
               color='#000'
               borderRadius={1000}
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#0cc',
+    backgroundColor: '#fff',
   },
   developmentModeText: {
     marginBottom: 20,

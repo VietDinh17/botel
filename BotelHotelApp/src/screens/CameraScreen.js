@@ -4,25 +4,25 @@ import { Camera, Permissions } from 'expo';
 
 export default class CameraScreen extends React.Component {
   state = {
-    hasCameraPermission: null,
     type: Camera.Constants.Type.back,
+    photo: null
   };
 
   async componentDidMount() {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({ hasCameraPermission: status === 'granted' });
+    // const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    // this.setState({ hasCameraPermission: status === 'granted' });
   }
 
   render() {
-    const { hasCameraPermission } = this.state;
-    if (hasCameraPermission === null) {
-      return <View />;
-    } else if (hasCameraPermission === false) {
-      return <Text>No access to camera</Text>;
-    } else {
+    // const { hasCameraPermission } = this.state;
+    // if (hasCameraPermission === null) {
+    //   return <View />;
+    // } else if (hasCameraPermission === false) {
+    //   return <Text>No access to camera</Text>;
+    // } else {
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type}>
+          <Camera style={{ flex: 1 }} type={this.state.type} ref={ ref => {this.camera = ref;}}>
             <View
               style={{
                 flex: 1,
@@ -48,9 +48,28 @@ export default class CameraScreen extends React.Component {
                 </Text>
               </TouchableOpacity>
             </View>
+            <View >
+            <TouchableOpacity
+                style={{
+                 // flex: 0.1,
+                  alignSelf: 'flex-end',
+                  alignItems: 'center',
+                }}
+                onPress={async () => {
+                    let p = await this.camera.takePictureAsync();
+                    this.setState({ photo: p});
+                    this.props.navigation.navigate('QR');
+                  }}
+                >
+                <Text
+                  style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
+                  {' '}Take Picture{' '}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </Camera>
         </View>
       );
-    }
+    // }
   }
 }

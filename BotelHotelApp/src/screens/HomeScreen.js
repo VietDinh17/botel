@@ -68,6 +68,7 @@ export default class HomeScreen extends React.Component {
               fontWeight="700"
               color='#000'
               borderRadius={1000}
+              onPress={() => {this.props.navigation.navigate('Camera')}}
               />
           </View>
         </ScrollView>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    fontFamily: 'Roboto',
     color: '#f80',
     // lineHeight: 24,
     textAlign: 'center',

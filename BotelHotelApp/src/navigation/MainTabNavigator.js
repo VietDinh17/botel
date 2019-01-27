@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import HomeScreen from '../screens/HomeScreen';
 import AdminScreen from '../screens/AdminScreen';
-//import CameraScreen from '../screens/CameraScreen';
+import CameraScreen from '../screens/CameraScreen';
 import TabBarIcon from '../components/TabBarIcon';
 import Promo from '../screens/Promo';
 import Reports from '../screens/Reports';
@@ -91,8 +91,8 @@ const RootStack = createStackNavigator({
   Promo: Promo,
   Reservation: Reservation,
   Production: Production,
-  Reports: Reports
-  //Camera: CameraScreen
+  Reports: Reports,
+  Camera: CameraScreen
 },{
   initialRouteName: 'Home'
 });

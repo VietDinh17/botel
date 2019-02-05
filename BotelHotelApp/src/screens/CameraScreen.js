@@ -56,8 +56,8 @@ export default class CameraScreen extends React.Component {
                   alignItems: 'center',
                 }}
                 onPress={async () => {
-                    let p = await this.camera.takePictureAsync();
-                    this.setState({ photo: p});
+                    // let p = await this.camera.takePictureAsync();
+                    // this.setState({ photo: p});
                     this.props.navigation.navigate('QR');
                   }}
                 >
